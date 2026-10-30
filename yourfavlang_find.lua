@@ -13,8 +13,8 @@ local youfavlang = {
 -------------------
 
 local include_list = {
-  "**.ex",
-  "**.exs",
+  "**.youfavlang",
+  "**.youfavlangscript",
 }
 local exclude_list = {
   --"build/*",
