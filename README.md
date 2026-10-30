@@ -8,7 +8,7 @@ I created [_find](https://github.com/0riginaln0/_find/).
 
 
 
-https://github.com/user-attachments/assets/6095f143-452a-40be-88c3-d433943c6124
+[demo.mp4](https://github.com/user-attachments/assets/6095f143-452a-40be-88c3-d433943c6124)
 
 
 
