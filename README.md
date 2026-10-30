@@ -21,7 +21,7 @@ I created [_find](https://github.com/0riginaln0/_find/).
 
 ## Installation
 
-Git clone this repo into the `.config/pragtical/plugins`.
+Git clone this repo into the `.config/pragtical/plugins`
 
 ## Design
 
