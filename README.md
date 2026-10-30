@@ -2,7 +2,7 @@
 
 I hate LSP. They are slow and miserable and unstable.
 
-I love go-to symbol action.
+I love go-to definition action.
 
 I created [_find](https://github.com/0riginaln0/_find/).
 
