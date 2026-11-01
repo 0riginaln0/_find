@@ -42,5 +42,4 @@ command.add("core.docview", {
 
 keymap.add {
   ["f12"] = "_find",
-  ["alt+d"] = "_find",
 }
