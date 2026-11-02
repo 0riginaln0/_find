@@ -62,8 +62,7 @@ local langs = {
 
 - Look at references
   - [yourfavlang_find.lua](https://github.com/0riginaln0/_find/blob/main/yourfavlang_find.lua) template
-  - [elixir_find.lua](https://github.com/0riginaln0/_find/blob/main/elixir_find.lua) is a simple one
-  - [c3_find.lua](https://github.com/0riginaln0/_find/blob/main/c3_find.lua) is a more complex one. It gathers more info and even [prompts](https://pragtical.dev/docs/api/core#command_view) for an additional info when required.
+  - From the smallest to the largest: erlang_find.lua, elixir_find.lua, c3_find.lua
 - Avoid false positives
   - If you can't find the symbol, just say "i can't find"
 - Do regression tests for your regex queries
