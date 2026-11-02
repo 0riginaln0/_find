@@ -4,9 +4,6 @@ local command = require "core.command"
 local keymap = require "core.keymap"
 local common = require "core.common"
 
--- TODO: `add std directory into project` command
--- TODO: regression tests for REGEX queries
-
 local elixir = {
   extensions = {"ex", "exs"},
 }
@@ -32,6 +29,10 @@ local exclude_list = {
 -- Regex builders & runner --
 -----------------------------
 
+local function regex_erlang_callable(word)
+  return "^"..word.."\\("
+end
+
 local function regex_callable(word, kwds)
   local preprefix
   if not kwds then
@@ -42,7 +43,10 @@ local function regex_callable(word, kwds)
   return "\\b"..preprefix.."\\s+"..word.."(?=\\()"
 end
 
-local function run_regex_query(regex_query)
+local function run_regex_query(regex_query, include, exclude)
+  include = include or include_list
+  exclude = exclude or exclude_list
+  
   -- open global search
   command.perform "project-search:find"
 
@@ -62,8 +66,8 @@ local function run_regex_query(regex_query)
     search_view.find_text:set_text(regex_query)
 
     search_view.filters_toggle:set_toggle(true)
-    search_view.includes_text:set_text(table.concat(include_list, ", "))
-    search_view.excludes_text:set_text(table.concat(exclude_list, ", "))
+    search_view.includes_text:set_text(table.concat(include, ", "))
+    search_view.excludes_text:set_text(table.concat(exclude, ", "))
 
     search_view:refresh()
     -- wait until there are search results.
@@ -103,9 +107,26 @@ local function get_identifier_under_cursor(dv)
   local line1, col1, line2, col2 = dv.doc:get_selection(true)
  
   res.char_after = dv.doc:get_char(line2, col2)
-  if res.char_after == "!" then
-    res.word = res.word .. "!"
+  if res.char_after == "!" or res.char_after == "?" then
+    res.word = res.word .. res.char_after
     res.char_after = dv.doc:get_char(line2, col2 + 1)
+  end
+
+  if col1 ~= 1 then
+    res.char_before = dv.doc:get_char(line2, col1 - 1)
+    if res.char_before == "." then
+      command.perform "doc:move-to-previous-word-start"
+      command.perform "doc:move-to-previous-word-start"
+      command.perform "doc:select-word"
+      local module = dv.doc:get_selection_text(1)
+      local line1, col1, line2, col2 = dv.doc:get_selection(true)
+      if col1 ~= 1 then
+        local char_before = dv.doc:get_char(line2, col1 - 1)
+        if char_before == ":" then
+          res.erlang_module = module
+        end
+      end
+    end
   end
   
   return res
@@ -115,6 +136,10 @@ function elixir.find(dv)
 
   local id = get_identifier_under_cursor(dv)
   if not id then return end
+
+  if id.erlang_module then
+    return run_regex_query(regex_erlang_callable(id.word), {"**"..id.erlang_module..".erl"})
+  end
 
   if id.char_after == "(" then
     return run_regex_query(regex_callable(id.word))
