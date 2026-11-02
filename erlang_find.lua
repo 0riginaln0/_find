@@ -29,7 +29,7 @@ local exclude_list = {
 -----------------------------
 
 
-local function regex_callable(word)
+local function regex_erlang_callable(word)
   return "^"..word.."\\("
 end
 
@@ -114,7 +114,7 @@ function erlang.find(dv)
 
   if id.char_after == "(" then
     if id.module ~= nil then
-      return run_regex_query(regex_callable(id.word), {"**"..id.module..".erl"})
+      return run_regex_query(regex_erlang_callable(id.word), {"**"..id.module..".erl"})
     end
     return run_regex_query(regex_callable(id.word))
   end
