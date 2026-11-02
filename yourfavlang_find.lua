@@ -31,7 +31,10 @@ local exclude_list = {
 
 
 
-local function run_regex_query(regex_query)
+local function run_regex_query(regex_query, include, exclude)
+  include = include or include_list
+  exclude = exclude or exclude_list
+  
   -- open global search
   command.perform "project-search:find"
 
@@ -51,8 +54,8 @@ local function run_regex_query(regex_query)
     search_view.find_text:set_text(regex_query)
 
     search_view.filters_toggle:set_toggle(true)
-    search_view.includes_text:set_text(table.concat(include_list, ", "))
-    search_view.excludes_text:set_text(table.concat(exclude_list, ", "))
+    search_view.includes_text:set_text(table.concat(include, ", "))
+    search_view.excludes_text:set_text(table.concat(exclude, ", "))
 
     search_view:refresh()
     -- wait until there are search results.
@@ -69,6 +72,7 @@ local function run_regex_query(regex_query)
     end
   end)
 end
+
 
 ---------------------------------
 -- Regex builders & runner end --
