@@ -18,6 +18,7 @@ I created [_find](https://github.com/0riginaln0/_find/).
 
 - [c3](https://github.com/0riginaln0/_find/blob/main/c3_find.lua)
 - [elixir](https://github.com/0riginaln0/_find/blob/main/elixir_find.lua)
+- [erlang](https://github.com/0riginaln0/_find/blob/main/elixir_find.lua)
 
 ## Installation
 
