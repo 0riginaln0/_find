@@ -116,7 +116,7 @@ function erlang.find(dv)
     if id.module ~= nil then
       return run_regex_query(regex_erlang_callable(id.word), {"**"..id.module..".erl"})
     end
-    return run_regex_query(regex_callable(id.word))
+    return run_regex_query(regex_erlang_callable(id.word))
   end
   
   core.log("idk how to query for "..id.word)
