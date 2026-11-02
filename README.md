@@ -52,9 +52,8 @@ elixir.find(dv)
 once `yourfavlang_find.lua` is implemented, add it into the [init.lua](https://github.com/0riginaln0/_find/blob/main/init.lua)
 ```lua
 local langs = {
-  require ".c3_find",
-  require ".elixir_find",
-  require ".yourfavlang_find", -- added
+  -- a bunch of other langs
+  require ".yourfavlang_find", -- place yourfavlang abouve
 }
 ```
 
