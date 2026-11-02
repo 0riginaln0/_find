@@ -53,7 +53,7 @@ once `yourfavlang_find.lua` is implemented, add it into the [init.lua](https://g
 ```lua
 local langs = {
   -- a bunch of other langs
-  require ".yourfavlang_find", -- place yourfavlang above
+  require ".yourfavlang_find", -- place yourfavlang below
 }
 ```
 
