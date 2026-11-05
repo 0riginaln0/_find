@@ -9,6 +9,7 @@ local langs = {
   require ".c3_find",
   require ".elixir_find",
   require ".erlang_find",
+  require ".odin_find",
 }
 
 local function table_contains(t, element)
