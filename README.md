@@ -62,7 +62,7 @@ local langs = {
 
 - Look at references
   - [yourfavlang_find.lua](https://github.com/0riginaln0/_find/blob/main/yourfavlang_find.lua) template
-  - From the smallest to the largest: erlang_find.lua, elixir_find.lua, c3_find.lua
+  - From the smallest to the largest: odin_find.lua, erlang_find.lua, elixir_find.lua, c3_find.lua
 - Avoid false positives
   - If you can't find the symbol, just say "i can't find"
 - Do regression tests for your regex queries
