@@ -1,4 +1,5 @@
 -- mod-version:3
+
 --[[
 
 This plugin can go-to any odin declaration that is followed by ::
