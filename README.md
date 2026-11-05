@@ -16,9 +16,10 @@ I created [_find](https://github.com/0riginaln0/_find/).
 
 ## Supported languages:
 
-- [c3](https://github.com/0riginaln0/_find/blob/main/c3_find.lua)
-- [elixir](https://github.com/0riginaln0/_find/blob/main/elixir_find.lua) (can go-to erlang sources)
-- [erlang](https://github.com/0riginaln0/_find/blob/main/erlang_find.lua)
+- [c3](https://c3-lang.org/)
+- [elixir](https://elixir-lang.org/) (can go-to erlang sources)
+- [erlang](https://www.erlang.org/)
+- [odin](https://c3-lang.org/)
 
 ## Installation
 
