@@ -67,3 +67,4 @@ local langs = {
   - If you can't find the symbol, just say "i can't find"
 - Do regression tests for your regex queries
   - yes, I did not. don't be like me
+- Document what exactly `yourfavlang_find.lua` plugin can go-to / search
