@@ -1,4 +1,11 @@
 -- mod-version:3
+
+--[[
+
+This plugin can go-to erlang functions
+
+--]]
+
 local core = require "core"
 local command = require "core.command"
 local keymap = require "core.keymap"
