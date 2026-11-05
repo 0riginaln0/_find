@@ -1,4 +1,16 @@
 -- mod-version:3
+--[[
+
+This plugin can go-to any odin declaration that is followed by ::
+
+Aboba :: struct {}
+abracadabra :: proc() {}
+AMOGUS :: 33
+
+etc.
+
+--]]
+
 local core = require "core"
 local command = require "core.command"
 local keymap = require "core.keymap"
