@@ -43,7 +43,7 @@ local exclude_list = {
 
 
 local function regex_odin_definition(word)
-  return "\\b"..word.."\\s*:"
+  return "\\b"..word.."\\s*::"
 end
 
 
