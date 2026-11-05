@@ -10,8 +10,9 @@ This plugin can go-to:
 3. Modules
   Searches for the all files where module is defined. Goes to, when there is only one.
 4. Types
-  struct|union|interface|enum|bitstruct|alias|typedef|constdef
+  struct|union|interface|enum|bitstruct|alias|typedef|constset
 5. Excuses
+6. Constants
 
 --]]
 
@@ -68,7 +69,7 @@ end
 local function regex_types(word, kwds)
   local preprefix
   if not kwds then
-    preprefix = "(struct|union|interface|enum|bitstruct|alias|typedef|constdef)"
+    preprefix = "(struct|union|interface|enum|bitstruct|alias|typedef|constset)"
   else
     preprefix = "("..table.concat(kwds, "|")..")"
   end
@@ -81,10 +82,6 @@ end
 
 local function regex_faultdef(word)
   return "(?<!::)\\b"..word.."\\b(?=\\s*(?:@\\w+\\s*)?[,;])"
-end
-
-local function regex_const(word)
-  return "\\bconst\\b[^=]*\\b"..word.."\\b(?=\\s*=)"
 end
 
 local function regex_word_space(word)
