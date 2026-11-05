@@ -1,4 +1,19 @@
 -- mod-version:3
+
+--[[
+
+This plugin can go-to
+
+- elixir callables
+  def defmacro defp
+
+- erlang sources
+  :base64.encode("Hello, World!")
+  :crypto.strong_rand_bytes(16)
+  etc.
+
+--]]
+
 local core = require "core"
 local command = require "core.command"
 local keymap = require "core.keymap"
