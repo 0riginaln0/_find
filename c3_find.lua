@@ -1,4 +1,20 @@
 -- mod-version:3
+
+--[[
+
+This plugin can go-to:
+
+1. Callables (fn macro)
+2. Methods
+  The user will be prompted for a struct name
+3. Modules
+  Searches for the all files where module is defined. Goes to, when there is only one.
+4. Types
+  struct|union|interface|enum|bitstruct|alias|typedef|constdef
+5. Excuses
+
+--]]
+
 local core = require "core"
 local command = require "core.command"
 local keymap = require "core.keymap"
