@@ -9,10 +9,12 @@ This plugin can go-to:
   The user will be prompted for a struct name
 3. Modules
   Searches for the all files where module is defined. Goes to, when there is only one.
-4. Types
+5. Submodules
+  Searches for every module which is a submodule of the selected one.
+6. Types
   struct|union|interface|enum|bitstruct|alias|typedef|constset
-5. Excuses
-6. Constants
+7. Excuses
+8. Constants
 
 --]]
 
@@ -73,11 +75,15 @@ local function regex_types(word, kwds)
   else
     preprefix = "("..table.concat(kwds, "|")..")"
   end
-  return preprefix.."\\s+\\b"..word.."\\b"
+  return "^\\s*"..preprefix.."\\s+\\b"..word.."\\b"
 end
 
 local function regex_module(word)
   return "module .*?\\b"..word.."\\b(?!::).*;"
+end
+
+local function regex_submodule(word)
+  return "module .*?\\b"..word.."\\b.*;"
 end
 
 local function regex_faultdef(word)
@@ -284,8 +290,10 @@ function c3.find(dv)
   if id.naming == "snake_case" then
     if id.char_before == "." then
       return handle_method_search(id)
-    end
-    if id.module_at_line_start or id.import_at_line_start
+    elseif (id.module_at_line_start or id.import_at_line_start) and
+           (id.char_after == ":" and id.char_after_after == ":") then
+      return run_regex_query(regex_submodule(id.word))
+    elseif id.module_at_line_start or id.import_at_line_start
        or (id.char_after == ":" and id.char_after_after == ":") then
       return run_regex_query(regex_module(id.word))
     end
