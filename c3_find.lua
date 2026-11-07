@@ -71,7 +71,7 @@ end
 local function regex_types(word, kwds)
   local preprefix
   if not kwds then
-    preprefix = "(struct|union|interface|enum|bitstruct|alias|typedef|constset)"
+    preprefix = "(struct|union|interface|enum|bitstruct|alias|typedef|constset|constdef)"
   else
     preprefix = "("..table.concat(kwds, "|")..")"
   end
